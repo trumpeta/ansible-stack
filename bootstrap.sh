@@ -3,10 +3,10 @@
 set -e
 
 SERVER="$1"
-USER="$2"
+USER="root"
 
 if [ -z "$SERVER" ] || [ -z "$USER" ]; then
-  echo "Usage: ./bootstrap.sh <server_ip> <user>"
+  echo "Usage: ./bootstrap.sh <server_ip>"
   exit 1
 fi
 
@@ -27,8 +27,7 @@ sudo apt update
 sudo apt install -y ansible git wget
 
 echo "[4] Cloning deploy repo..."
-mkdir -p ~/deploy
-cd ~/deploy
+cd ~
 
 if [ ! -d "ansible-stack" ]; then
   git clone https://github.com/trumpeta/ansible-stack.git
