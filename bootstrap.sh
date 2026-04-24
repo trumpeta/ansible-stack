@@ -3,8 +3,7 @@
 set -e
 
 echo "[1] Detecting server IP..."
-read -p "Zadej IP serveru: " SERVER
-
+SERVER=$(curl -s ifconfig.me)
 USER="root"
 
 echo "[2] Checking SSH key..."
